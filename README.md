@@ -1,6 +1,6 @@
 # vue-todolist
 
-> A Vue.js project
+> my vue-todolist demo
 
 ## Build Setup
 
