@@ -2,6 +2,11 @@
 
 > my vue-todolist demo
 
+## TODO
+
+- 删除列表
+- 标记列表完成
+
 ## Build Setup
 
 ``` bash
