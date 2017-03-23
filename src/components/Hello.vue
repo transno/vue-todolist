@@ -3,10 +3,11 @@
     <input type="text" v-model="text" placeholder="输入回车添加Todolist" @keyup.enter="addList">
     <ul>
       <li v-for="(items, index) in list">
-        <label><input type="checkbox" v-model="completeList"><span>{{items.msg}}</span></label>
+        <label><input type="checkbox" v-model="completeList" :value="items.msg"><span>{{items.msg}}</span></label>
         <i @click="removeList(index)" title="删除">×</i>
       </li>
     </ul>
+    <span>{{completeList}}</span>
   </div>
 </template>
 
@@ -65,7 +66,7 @@
     line-height: 30px;
     opacity: 0;
   }
-  li:hover input[type="checkbox"] + span:before, li:hover i {
+  li:hover input[type="checkbox"] ~ span:before, li:hover i {
     opacity: 1;
   }
   a {
@@ -74,7 +75,7 @@
   input[type="checkbox"] {
     display: none;
   }
-  input[type="checkbox"] + span {
+  input[type="checkbox"] ~ span {
     font-size: 16px;
     color: #666;
     position: relative;
@@ -82,7 +83,7 @@
     height: 30px;
     line-height: 30px;
   }
-  input[type="checkbox"] + span:before {
+  input[type="checkbox"] ~ span:before {
     display: block;
     position: absolute;
     width: 18px;
@@ -98,11 +99,11 @@
     cursor: pointer;
     opacity: 0;
   }
-  input[type="checkbox"]:checked + span {
+  li input[type="checkbox"]:checked ~ span {
     text-decoration: line-through;
     color: #BBB;
   }
-  input[type="checkbox"]:checked + span:before {
+  li input[type="checkbox"]:checked ~ span:before {
     background-color: green;
     border-color: green;
   }
